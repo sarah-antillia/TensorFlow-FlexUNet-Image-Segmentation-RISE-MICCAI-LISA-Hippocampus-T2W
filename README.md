@@ -137,9 +137,10 @@ The folder structure of the original dataset is the following.<br>
 
 We used a simple Python script to generate the upscaled PNG  dataset from the following Image and Segmentation NIfTI files
 of 79 subjects:<br>
-<br>
-<b>Low Field Images/LISA_*_ciso.nii</b><br>
-<b>Subtask 2a - Hippocampus Segmentations/LISA_*_HF_hipp.nii</b><br>
+<pre>
+<b>Low Field Images/LISA_*_ciso.nii</b>
+<b>Subtask 2a - Hippocampus Segmentations/LISA_*_HF_hipp.nii</b>
+</pre>
 <br>
 We excluded all empty black masks and their corresponding images to generate the PNG dataset, 
 which were irrelevant to train our segmentation model, and upscaled all images and masks to 394x466 pixels.
