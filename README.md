@@ -113,7 +113,7 @@ RISE-MICCAI-LISA-Hippocampus-T2W-ImageMask-Dataset.zip</a>, expand the downloade
 <b>LISA-Hippocampus-T2W Statistics</b><br>
 <img src ="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/LISA-Hippocampus-T2W_Statistics.png" width="512" height="auto"><br>
 <br><br>
-As shown above, the number of images of train and valid datasets is large enough to use for the
+As shown above, the number of images of train and valid datasets is not so large to use for the
  training set of our segmentation model.
 <br><br>
 <h3>2.2 Derivation PNG dataset</h3>
@@ -259,7 +259,7 @@ discouraging results.
 <img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/asset/epoch_change_infer_at_end.png" width="1024" height="auto"><br>
 <br>
 
-In this experiment, the training process was stopped at epoch 40 by EarlyStopping callback.<br><br>
+In this experiment, the training process was terminated at epoch 40.<br><br>
 <img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/asset/train_console_output_at_epoch40.png" width="1024" height="auto"><br>
 <br>
 
