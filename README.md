@@ -402,7 +402,7 @@ mask_overlay  = True
 <b>Acutual Image Segmentation for 2D Slices of a LISA-Hippocampus-T2W NIfTI</b><br>
 Some Slices, Inferred Masks and Mask overlays for a 3D volume <b>LISA_0040_ciso.nii</b> file.<br>
 <br>
-<b>class_color_map={NETC:red, SNFH:green, ET:blue, RC:yellow} </b>
+<b> class_color_map = {Right hippocampus:red,  Left hippocampus:green }</b>
 <br>
 <table>
 <tr>
