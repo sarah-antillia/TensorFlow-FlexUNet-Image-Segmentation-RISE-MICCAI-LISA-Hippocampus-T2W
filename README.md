@@ -1,6 +1,11 @@
-<h2>TensorFlow-FlexUNet-Image-Segmentation-RISE-MICCAI-LISA-Hippocampus-T2W (2026/04/11)</h2>
+<h2>TensorFlow-FlexUNet-Image-Segmentation-RISE-MICCAI-LISA-Hippocampus-T2W (Updated: 2026/05/04)</h2>
 Sarah T. Arai<br>
 Software Laboratory antillia.com<br><br>
+<ul>
+<li>2026/05/04: Added infer3d method of <a href="./src/TensorFlowFlexModel.py">TensorFlowFexModel.py</a>, and ran 5.infer3d.bat file.</li>
+<li>2026/05/04: Generated an overlays.gif from maskoverlay PNG files by running 6.video3d.bat file.</li>
+</ul>
+<br>
 This is the first experiment of Image Segmentation for <b>RISE MICCAI LISA </b>
 (<b>L</b>ow field pediatric brain magnetic resonance <b>I</b>mage <b>S</b>egmentation and quality <b>A</b>ssurance)
 ) <b>Hippocampus T2W</b>
@@ -365,6 +370,110 @@ ground truth masks.
 </tr>
 </table>
 <hr>
+<br>
+<br>
+<h3>
+6 3D Volume Segmentation
+</h3>
+Please move <b>./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W</b> folder, and run the following bat file to infer images segmentation for 2D slices of 3D volume NIfTI files
+ by the Trained-TensorFlowFlexUNet model for LISA-Hippocampus-T2W.<br>
+<pre>
+>./5.infer3d.bat
+</pre>
+This simply runs the following command.
+<pre>
+>python ../../../src/TensorFlowFlexUNet3DInferencer.py ./train_eval_infer.config
+</pre>
+
+<b>infer3d section </b> in <a href="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/train_eval_infer.config">
+train_eval_infer.config
+<a></b>
+<pre>
+[infer3d] 
+;Specify an images_dir which contains NIfTI files
+images_dir    = "./mini_test_3d/images/"
+output_dir    = "./mini_test_3d_output/"
+slice_shape_order = "hwd"
+slice_resize   = (394,466)
+slice_rotation = cv2.ROTATE_90_CLOCKWISE 
+mask_overlay  = True
+</pre>
+<hr>
+<b>Acutual Image Segmentation for 2D Slices of a LISA-Hippocampus-T2W NIfTI</b><br>
+Some Slices, Inferred Masks and Mask overlays for a 3D volume <b>LISA_0040_ciso.nii</b> file.<br>
+<br>
+<b>class_color_map={NETC:red, SNFH:green, ET:blue, RC:yellow} </b>
+<br>
+<table>
+<tr>
+<th>Input: Slice</th>
+<th>Prediction: Inferred mask</th>
+<th>Mask Overlay</th>
+</tr>
+<tr>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/slices/10048.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/masks/10048.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/overlays/10048.png" width="320" height="auto"></td>
+</tr>
+<tr>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/slices/10050.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/masks/10050.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/overlays/10050.png" width="320" height="auto"></td>
+</tr>
+<tr>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/slices/10057.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/masks/10057.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/overlays/10057.png" width="320" height="auto"></td>
+</tr>
+<tr>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/slices/10061.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/masks/10061.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/overlays/10061.png" width="320" height="auto"></td>
+</tr>
+<tr>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/slices/10065.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/masks/10065.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/overlays/10065.png" width="320" height="auto"></td>
+</tr>
+<tr>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/slices/10070.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/masks/10070.png" width="320" height="auto"></td>
+<td><img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/mini_test_3d_output/LISA_0040_ciso.nii/overlays/10070.png" width="320" height="auto"></td>
+
+</tr>
+</table>
+<hr>
+<br>
+<br>
+<h3>
+7 MaskOverlay Video of 3D Volume Segmentation
+</h3>
+Please move to <b>./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W</b> folder, and run the following bat file 
+to generate <b>overlays.mp4</b> or <b>overlay.gif</b> for MaskOverlays of 3D Volume Segmentation. <br>
+<pre>
+>./6.video3d.bat
+</pre>
+This simply runs the following command.
+<pre>
+>python ../../../src/MaskOverlayVideoGenerator.py ./train_eval_infer.config
+</pre>
+<br>
+
+<b>infer3d section </b> in <a href="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/train_eval_infer.config">
+train_eval_infer.config
+<a></b>
+
+<pre>
+[infer3d] 
+mask_overlay  = True
+;Specify ".mp4" or ".gif".
+;video_fileformat  = ".mp4"
+video_fileformat  = ".gif"
+</pre>
+<br>
+<b>overlays.gif</b><br>
+<img src="./projects/TensorFlowFlexUNet/LISA-Hippocampus-T2W/video_3d/overlays.gif">
+<br>
 <br>
 <h3>
 References
